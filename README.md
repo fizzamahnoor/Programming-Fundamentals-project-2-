@@ -39,4 +39,38 @@ cout<<"x^y=";
 cout<<power;
 }
 
+Question 3:
+Identify and correct the errors in each of the following:
+
+a) while ( c <= 5 )
+{
+ product *= c;
+ ++c;
+Error:
+missing brace at the end
+end
+b) cin << value;
+
+Error 
+wrong << used
+
+c) if ( gender == 1 )
+ cout << "Woman" << endl;
+else;
+ cout << "Man" << endl;
+Error 
+semicolon after else
+
+Question no4:
+
+ What’s wrong with the following while repetition statement?
+
+ while ( z >= 0 )
+ sum += z;
+Error 
+condition will never be false for positive integars and infinite loop will be created 
+
+Question no4:
+
+
 
