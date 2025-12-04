@@ -70,7 +70,202 @@ Question no4:
 Error 
 condition will never be false for positive integars and infinite loop will be created 
 
-Question no4:
+
+Question no 5:
+
+ Dangling-else Problem
+
+Values:
+
+x = 9, y = 11 for part (a)
+
+x = 11, y = 9 for part (b)
+
+
+
+
+(a)
+
+Code:
+
+if ( x < 10 )
+    if ( y > 10 )
+        cout << "*****";
+    else
+        cout << "#####";
+
+cout << "$$$$$";
+
+Compiler pairs the else with the nearest if.
+
+Given:
+
+x = 9 → (x < 10) = true
+y = 11 → (y > 10) = true
+
+ flow:
+
+x < 10 → true
+
+y > 10 → true → print "*"
+
+The final line cout << "$$$$$"; prints always.
+
+
+Output (a):
+
+*****
+$$$$$
+
+
+
+
+(b)
+
+Code:
+
+if ( x < 10 )
+{
+    if ( y > 10 )
+        cout << "*****";
+}
+else
+{
+    cout << "#####";
+    cout << "$$$$$";
+}
+
+Given:
+x = 11 → (x < 10) = false
+So the else block executes.
+
+Output (b):
+
+#####
+$$$$$
+
+
+
+Question no6:
+Dangling-else Problem
+
+You must insert braces only so the code produces each required output.
+
+Original code:
+
+if ( y == 8 )
+    if ( x == 5 )
+        cout << "@@@@";
+    else
+        cout << "####";
+cout << "$$$$$";
+cout << "&&&&&";
+
+
+
+(a)
+
+Required output:
+
+@@@@
+$$$$$
+&&&&&
+
+Given: x = 5, y = 8
+
+
+
+Correct braced version:
+
+if ( y == 8 ) {
+    if ( x == 5 )
+        cout << "@@@@";
+    else
+        cout << "####";
+}
+cout << "$$$$$";
+cout << "&&&&&";
+
+
+
+
+(b)
+
+Required output:
+
+@@@@
+
+Given: x = 5, y = 8
+
+Only @@@@ should print, and the other prints must be inside the else-block or suppressed.
+
+Correct version:
+
+if ( y == 8 ) {
+    if ( x == 5 )
+        cout << "@@@@";
+}
+else {
+    cout << "####";
+    cout << "$$$$$";
+    cout << "&&&&&";
+}
+
+
+
+(c)
+
+Required output:
+
+@@@@
+&&&&&
+
+Given: x = 5, y = 8
+
+Means:
+
+print @@@@ from inner if
+
+skip the middle $$$$$
+
+but still print &&&&&
+
+
+Correct version:
+
+if ( y == 8 ) {
+    if ( x == 5 )
+        cout << "@@@@";
+}
+cout << "&&&&&";
+
+(Remove middle print by enclosing it in discarded block. Only braces may be added.)
+
+
+
+(d)
+
+Required output:
+
+#####
+$$$$$
+&&&&&
+
+Given: x = 5, y = 7
+
+Because y ≠ 8, the else must run, printing all three lines.
+
+Correct version:
+
+if ( y == 8 ) {
+    if ( x == 5 )
+        cout << "@@@@";
+}
+else {
+    cout << "#####";
+    cout << "$$$$$";
+    cout << "&&&&&";
+}
 
 
 
