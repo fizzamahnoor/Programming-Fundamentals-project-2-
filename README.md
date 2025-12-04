@@ -403,6 +403,264 @@ Fix: use while (n <= 10):
 int n = 1;
 while (n <= 10)
     cout << n++ << endl;
+________
+
+Question no 3:
+
+
+
+ Find the errors
+
+a) 
+Given (rough form):
+For ( x = 100, x >= 1, x++ ) cout << x << endl;
+
+Errors 
+
+Keyword must be lowercase for.
+
+for-statement parts are separated by semicolons ; not commas ,.
+
+If you start at 100 and want to count down to 1 the increment should be x-- (not x++).
+
+x should be declared (e.g. int x;).
+
+
+Correct:
+
+for (int x = 100; x >= 1; x--)
+    cout << x << endl;
+
+
+
+
+b) 
+Given (rough):
+
+switch ( value % 2 )
+{
+  case 0:
+    cout << "Even integer" << endl;
+  case 1:
+    cout << "Odd integer" << endl;
+}
+
+Errors 
+
+Missing break; after each case so both branches would run.
+
+Optionally use default: though not necessary here.
+
+
+Correct:
+
+switch ( value % 2 ) {
+  case 0:
+    cout << "Even integer" << endl;
+    break;
+  case 1:
+    cout << "Odd integer" << endl;
+    break;
+}
+
+
+
+c) 
+Given (rough):
+for ( x = 19; x >= 1; x += 2 ) cout << x << endl;
+
+Errors 
+
+If you want odd integers from 19 down to 1, the update should subtract 2 (x -= 2) not add 2.
+
+Declare x (e.g. int x).
+
+
+Correct:
+
+for (int x = 19; x >= 1; x -= 2)
+    cout << x << endl;
+
+
+
+d)
+ Given (rough):
+
+counter = 2;
+do
+{
+  cout << counter << endl;
+  counter += 2;
+} While ( counter < 100 );
+
+Errors 
+
+while should be lowercase.
+
+Condition: to include 100 in output we should test counter <= 100.
+
+The do-while needs a semicolon after closing while
+
+
+Correct:
+
+int counter = 2;
+do {
+    cout << counter << endl;
+    counter += 2;
+} while (counter <= 100);
+
+____________
+
+Question no 4
+
+(Summing Integers)
+
+Problem: first integer read specifies number of values remaining; sum those values. Example input: 5 100 200 300 400 500 (5 indicates next 5 values should be summed).
+
+Solution (C++):
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int n;
+    if (!(cin >> n)) return 0;             number of values to sum
+    int sum = 0, value;
+    for (int i = 0; i < n; ++i) {
+        cin >> value;
+        sum += value;
+    }
+    cout << "Sum = " << sum << endl;
+    return 0;
+}
+
+_________
+
+Question no 4:
+
+(Averaging Integers)
+
+Problem: Use a for-style approach to compute average of several integers where last value is sentinel 9999 (which should not be included). Example input: 10 8 11 7 9 9999.
+
+Solution (C++):
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int value;
+    int sum = 0;
+    int count = 0;
+
+    while (cin >> value && value != 9999) {
+        sum += value;
+        ++count;
+    }
+
+    if (count > 0)
+        cout << "Average = " << static_cast<double>(sum) / count << endl;
+    else
+        cout << "No values entered." << endl;
+
+    return 0;
+}
+
+
+
+
+___________
+
+Question no5:
+
+ What does the program print?
+
+
+for (int i = 1; i <= y; i++) {
+    for (int j = 1; j <= x; j++)
+        cout << '@';
+    cout << endl;
+}
+
+@@@@
+@  @
+@  @
+@@@@
+
+
+__________
+Questionno 6:
+(Find the Smallest Integer)
+
+Problem: First value read specifies the number of values to be entered. Find the smallest of them.
+
+Solution :
+
+#include <iostream>
+#include <limits>
+using namespace std;
+
+int main() {
+    int n;
+    if (!(cin >> n) || n <= 0) {
+        cout << "Invalid count" << endl;
+        return 0;
+    }
+
+    int value, smallest;
+    cin >> smallest; // read first value
+    for (int i = 1; i < n; ++i) {
+        cin >> value;
+        if (value < smallest) smallest = value;
+    }
+
+    cout << "Smallest = " << smallest << endl;
+    return 0;
+}
+
+
+______________
+
+Question no 7:
+(Product of Odd Integers)
+
+Problem: Compute the product of the odd integers from 1 to 15.
+
+Solution :
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    long long product = 1;
+    for (int i = 1; i <= 15; i += 2)
+        product *= i;
+    cout << "Product of odd integers 1..15 = " << product << endl;
+    return 0;
+}
+
+Result: product = 1*3*5*7*9*11*13*15 = 2027025 
+
+
+
+______________
+Question no 8:
+(Factorials)
+
+Problem: Use a for to evaluate factorials of integers from 1 to 5 and print in tabular format. (Also mentions difficulty calculating factorial of 20 — overflow in typical 32-bit int.)
+
+Solution :
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    cout << "n\tfactorial\n";
+    unsigned long long factorial = 1;
+    for (int n = 1; n <= 20; ++n) {
+        factorial *= n;
+        cout << n << '\t' << factorial << 
+}
 
 
 
