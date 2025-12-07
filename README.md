@@ -537,7 +537,7 @@ int main() {
 
 _________
 
-Question no 4:
+Question no 5:
 
 (Averaging Integers)
 
@@ -571,7 +571,7 @@ int main() {
 
 ___________
 
-Question no5:
+Question no6:
 
  What does the program print?
 
@@ -589,7 +589,7 @@ for (int i = 1; i <= y; i++) {
 
 
 __________
-Questionno 6:
+Questionno 7:
 (Find the Smallest Integer)
 
 Problem: First value read specifies the number of values to be entered. Find the smallest of them.
