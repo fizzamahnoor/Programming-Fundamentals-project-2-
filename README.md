@@ -1,4 +1,4 @@
-# Programming-Fundamentals-project-2-
+# Programming-Fundamentals-Fizza Mahnoor-2582
 
 Question no1:
 if Cout is greater than 10 print cout is greater thsb 10
